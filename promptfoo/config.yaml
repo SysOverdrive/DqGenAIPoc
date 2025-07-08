@@ -1,0 +1,12 @@
+description: Evaluate SQL generation from natural language queries in favorites.json
+providers:
+  - openai:gpt-4o
+prompts:
+  - file://promptfoo/prompts/sql_gen.prompt.txt
+# Test cases are loaded from the YAML file generated from favorites.json
+# Each test case provides a question and expected result
+# The assertion checks if the output contains the expected summary
+# You can add more test cases by expanding favorites.yaml
+# See https://www.promptfoo.dev/docs/configuration/reference/
+tests:
+  - file://promptfoo/prompts/favorites.yaml 

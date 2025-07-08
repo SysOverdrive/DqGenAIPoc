@@ -5,5 +5,26 @@
     "sql_query": "SELECT * FROM df ORDER BY [Transaction Value] DESC LIMIT 5",
     "result_summary": "Table with 5 rows",
     "timestamp": "2025-07-08 01:42:37"
+  },
+  {
+    "id": 2,
+    "question": "How many null values are in each column?",
+    "sql_query": "SELECT \n    COUNT(CASE WHEN \"Unnamed: 0\" IS NULL THEN 1 END) AS \"Unnamed: 0\",\n    COUNT(CASE WHEN \"Authorization Group\" IS NULL THEN 1 END) AS \"Authorization Group\",\n    COUNT(CASE WHEN \"Bus. Transac. Type\" IS NULL THEN 1 END) AS \"Bus. Transac. Type\",\n    COUNT(CASE WHEN \"Calculate Tax\" IS NULL THEN 1 END) AS \"Calculate Tax\",\n    COUNT(CASE WHEN \"Cash Flow-Relevant Doc.\" IS NULL THEN 1 END) AS \"Cash Flow-Relevant Doc.\",\n    COUNT(CASE WHEN \"Cleared Item\" IS NULL THEN 1 END) AS \"Cleared Item\",\n    COUNT(CASE WHEN \"Clearing Date\" IS NULL THEN 1 END) AS \"Clearing Date\",\n    COUNT(CASE WHEN \"Clearing Entry Date\" IS NULL THEN 1 END) AS \"Clearing Entry Date\",\n    COUNT(CASE WHEN \"Clearing Fiscal Year\" IS NULL THEN 1 END) AS \"Clearing Fiscal Year\",\n    COUNT(CASE WHEN \"Country Key\" IS NULL THEN 1 END) AS \"Country Key\",\n    COUNT(CASE WHEN \"Currency\" IS NULL THEN 1 END) AS \"Currency\",\n    COUNT(CASE WHEN \"Debit/Credit ind\" IS NULL THEN 1 END) AS \"Debit/Credit ind\",\n    COUNT(CASE WHEN \"Transaction Value\" IS NULL THEN 1 END) AS \"Transaction Value\",\n    COUNT(CASE WHEN \"Document Is Back-Posted\" IS NULL THEN 1 END) AS \"Document Is Back-Posted\",\n    COUNT(CASE WHEN \"Exchange rate\" IS NULL THEN 1 END) AS \"Exchange rate\",\n    COUNT(CASE WHEN \"Fiscal Year.1\" IS NULL THEN 1 END) AS \"Fiscal Year.1\",\n    COUNT(CASE WHEN \"Fiscal Year.2\" IS NULL THEN 1 END) AS \"Fiscal Year.2\",\n    COUNT(CASE WHEN \"Posting period.1\" IS NULL THEN 1 END) AS \"Posting period.1\",\n    COUNT(CASE WHEN \"Ref. Doc. Line Item\" IS NULL THEN 1 END) AS \"Ref. Doc. Line Item\"\nFROM df",
+    "result_summary": "**Null Count Results:**\n\n• **Unnamed: 0**: 0\n• **Authorization Group**: 0\n• **Bus. Transac. Type**: ...",
+    "timestamp": "2025-07-08 13:06:34"
+  },
+  {
+    "id": 3,
+    "question": "Show me transactions with values greater than 1000000",
+    "sql_query": "SELECT * FROM df WHERE \"Transaction Value\" > 1000000",
+    "result_summary": "Table with 10 rows",
+    "timestamp": "2025-07-08 13:06:45"
+  },
+  {
+    "id": 4,
+    "question": "What is the average transaction value?",
+    "sql_query": "SELECT AVG(\"Transaction Value\") AS average_transaction_value FROM df;",
+    "result_summary": "**Result:** -5993.932020985401",
+    "timestamp": "2025-07-08 13:07:01"
   }
 ]

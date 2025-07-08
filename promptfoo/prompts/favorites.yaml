@@ -1,0 +1,5 @@
+- vars:
+    question: "Show me the top 5 transactions by value"
+  assert:
+    - type: contains
+      value: "Table with 5 rows" 
