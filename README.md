@@ -52,6 +52,16 @@ https://miro.com/app/board/uXjVIg-t9RI=/
 
 3. **Open your browser** and navigate to the URL shown in the terminal (usually http://localhost:8501)
 
+### Setup OpenAI API Key (.env)
+
+Before running the app, create a file named `.env` in the project root directory and add your OpenAI API key like this:
+
+```
+OPENAI_API_KEY=your-openai-key-here
+```
+
+This will allow the application to access the OpenAI API securely.
+
 ## How to Use
 
 1. **Load Data**: 
@@ -109,10 +119,7 @@ When a query fails to execute, the app provides:
 The demo includes sample financial data with the following columns:
 - Authorization Group
 - Business Transaction Type
-
-## Security Note
-
-This demo includes a hardcoded OpenAI API key for demonstration purposes. In production, always use environment variables for API keys.
+..
 
 ## Future Enhancements
 
