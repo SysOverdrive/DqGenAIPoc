@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "question": "Show me the top 5 transactions by value",
+    "sql_query": "SELECT * FROM df ORDER BY [Transaction Value] DESC LIMIT 5",
+    "result_summary": "Table with 5 rows",
+    "timestamp": "2025-07-08 01:42:37"
+  }
+]

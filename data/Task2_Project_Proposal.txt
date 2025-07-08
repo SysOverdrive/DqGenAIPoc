@@ -1,0 +1,34 @@
+Task 2: Project Proposal
+
+Prepare a project proposal for the client. It should include:
+
+- Technical design:
+    - Architecture overview:
+        • The solution consists of the following main components:
+            - Data Sources: Various structured data files (e.g., CSV, Excel) or databases from which data is collected.
+            - Data Ingestion Layer: Responsible for loading and preprocessing data into a unified format (using Python and pandas).
+            - Data Storage: Data is stored in-memory as pandas DataFrames for fast access and analysis (no external database required for PoC).
+            - AI Query Engine: Utilizes OpenAI's GPT-4o-mini to translate user questions into SQL queries and data analysis instructions.
+            - SQL Execution Layer: Uses pandasql to execute SQL queries on the in-memory DataFrames.
+            - User Interface: A Streamlit-based web app that allows users to upload data, ask questions, and view results interactively.
+        • Interaction flow:
+            1. User uploads data or selects sample data via the web interface.
+            2. User asks a question in natural language.
+            3. The AI Query Engine generates a SQL query based on the question and the data schema.
+            4. The SQL Execution Layer runs the query on the loaded data.
+            5. Results are displayed to the user in the web interface, with options to view the SQL, save favorites, or retry queries.
+    - Technologies used:
+        • What do you want to use to build this?
+        • Which components will use which technologies?
+    - Deployment plan:
+        • What infrastructure requirements will the solution have?
+- Project planning:
+    - Development plan:
+        • Weekly breakdown of the development.
+        • How many weeks do you need?
+        • What will be done each week?
+    - Resources needed:
+        • How many people do you need?
+        • What kind of profiles?
+- UI mockup:
+    - Low fidelity sketch of user interface 

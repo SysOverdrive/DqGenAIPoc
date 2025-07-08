@@ -1,0 +1,33 @@
+
+*Hello,*
+
+*I am contacting you on behalf of Jäppinen Ltd. I am gathering proposals for PoC where we would use AI for data quality management.*
+
+***Why?** We need this solution for data profiling, so that our non-technical users can ask questions like how many fields are empty, or if there are any outliers present. Basically, so that the user can interact with the data and get answers for simple data questions.*
+
+***How?** We will collect data from various sources into a SQL database and then utilize AI as “data analyst”. Users will ask questions about data via UI, and AI will do SQL queries and other analysis. This will likely require use of Generative AI.*
+
+***What?** Could you please provide a proposal for an AI solution for SQL queries and UI for the end-user to ask questions to which AI responds to.*
+
+**Task 1:**
+
+- Develop a simple demo for the client to demonstrate the viability of this concept. The choice of functionality and features to be implemented is up to you.
+- Use Python. You may use attached sample data in excel for your demonstration. You don’t need to spin up a database, feel free to load the data in pandas and use pandasql to run the queries.
+- Once done, you will present the demo to the client. The client has only basic technology knowledge, they are more of a business user. The goal is to get them excited and to persuade them that this solution can work and deliver value to them.
+- You can use gpt-4o-mini from OpenAI API with following secret key:
+
+**Task 2:**
+
+Prepare a project proposal for the client. It should include:
+
+- Technical design:
+    - Architecture overview (what components does the solution consist of, how do they interact?)
+    - Technologies used (what do you want to use to build this? Which components will use which technologies?)
+    - Deployment plan (What infrastructure requirements will the solution have?)
+- Project planning:
+    - Development plan (Weekly breakdown of the development. How many weeks do you need? What will be done each week?)
+    - Resources needed (How many people do you need? What kind of profiles?)
+- UI mockup
+    - Low fidelity sketch of user interface
+
+Please note that we are mainly interested in your ideas and the content, formatting is secondary consideration.
