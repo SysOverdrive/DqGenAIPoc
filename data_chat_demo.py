@@ -523,12 +523,15 @@ if st.session_state.df is not None:
             st.metric("Outliers (numeric)", f"{dq['total_outliers']}", delta=f"{dq['percent_outliers']:.2f}%")
         # Missing values per column
         st.markdown("#### Missing Values by Column")
-        st.dataframe(dq['missing'].to_frame('Missing Count'))
+        missing_df = dq['missing'].to_frame('Missing Count')
+        missing_df = missing_df[missing_df['Missing Count'] != 0]
+        st.dataframe(missing_df)
         # Outliers per column
         if dq['outliers']:
             st.markdown("#### Outliers by Numeric Column")
             outlier_df = pd.DataFrame.from_dict(dq['outliers'], orient='index').reset_index()
             outlier_df.columns = ["Column", "Outlier Count"]
+            outlier_df = outlier_df[outlier_df["Outlier Count"] != 0]
             st.dataframe(outlier_df)
         # Hide dashboard button
         if st.button("❌ Close Data Quality Dashboard", key="close_dq_dashboard"):

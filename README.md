@@ -1,4 +1,8 @@
-# 🤖 AI Data Analyst Demo
+![App Screenshot](png/app.png)
+
+*Screenshot: Main interface of the AI Data Analyst Demo app*
+
+# 🤖 AI Data Quality Demo
 
 A Streamlit application that demonstrates how AI can be used as a "data analyst" to answer questions about data in plain English.
 
@@ -11,24 +15,37 @@ A Streamlit application that demonstrates how AI can be used as a "data analyst"
 - **Real-time Analysis**: Get instant answers to data questions
 - **SQL Query Visibility**: See the generated SQL queries for transparency
 - **Graceful Error Handling**: When queries fail, get helpful suggestions and recovery options
-- **Query Modification Help**: Interactive help to improve your questions
-- **Data Schema Viewer**: See column names, data types, and sample values
-- **Retry Functionality**: Easily retry failed queries with one click - generates a new SQL query for the same question
+- **Query Modification Help** BROKEN: Interactive help to improve your questions
+- **Data Schema Viewer** BROKEN: See column names, data types, and sample values
+- **Retry Functionality** BROKEN: Easily retry failed queries with one click - generates a new SQL query for the same question
 
 ## Quick Start
 
+Miro Board
+https://miro.com/app/board/uXjVIg-t9RI=/
 ### Prerequisites
 - Python 3.8 or higher
 - OpenAI API key (included in the demo)
 
 ### Installation
 
-1. **Install dependencies:**
+1. **Install uv (fast Python package manager):**
    ```bash
-   pip install -r requirements.txt
+   pip install uv
    ```
 
-2. **Run the application:**
+2. **Create and activate a virtual environment:**
+   ```bash
+   uv venv venv
+   .\venv\Scripts\activate
+   ```
+
+3. **Install dependencies using uv:**
+   ```bash
+   uv pip install -r requirements.txt
+   ```
+
+4. **Run the application:**
    ```bash
    streamlit run data_chat_demo.py
    ```
@@ -92,11 +109,6 @@ When a query fails to execute, the app provides:
 The demo includes sample financial data with the following columns:
 - Authorization Group
 - Business Transaction Type
-- Transaction Value
-- Currency
-- Debit/Credit Indicator
-- Fiscal Year
-- And more...
 
 ## Security Note
 
@@ -107,6 +119,15 @@ This demo includes a hardcoded OpenAI API key for demonstration purposes. In pro
 - Support for multiple data sources
 - Data visualization capabilities
 - Export functionality
-- User authentication
 - Query history and favorites
 - Advanced data quality checks 
+
+## LLM Regression Testing with promptfoo
+
+This project uses [promptfoo](https://www.promptfoo.dev/) as an LLM testing framework to ensure the reliability of SQL query generation. Specifically, promptfoo is set up for **regression testing**: it checks that user favorites—important or frequently used queries—continue to produce valid and expected results, even if the prompt template or underlying model changes.
+
+- Test cases are generated from `data/favorites.json`.
+- The prompt and test configuration are in the `promptfoo/` folder.
+- To run the regression tests, see the instructions in `promptfoo/README.md`.
+
+This helps maintain trust and consistency for users, as their favorite queries are always validated against any changes to the LLM setup. 
