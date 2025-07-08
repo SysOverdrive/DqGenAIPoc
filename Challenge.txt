@@ -14,7 +14,6 @@
 - Develop a simple demo for the client to demonstrate the viability of this concept. The choice of functionality and features to be implemented is up to you.
 - Use Python. You may use attached sample data in excel for your demonstration. You don’t need to spin up a database, feel free to load the data in pandas and use pandasql to run the queries.
 - Once done, you will present the demo to the client. The client has only basic technology knowledge, they are more of a business user. The goal is to get them excited and to persuade them that this solution can work and deliver value to them.
-- You can use gpt-4o-mini from OpenAI API with following secret key:
 
 **Task 2:**
 

@@ -628,6 +628,7 @@ if st.session_state.df is not None:
             with st.spinner("Analyzing your data..."):
                 # Get schema information
                 schema_info = get_schema_info(st.session_state.df)
+                print("[DEBUG] Schema Info:\n", schema_info)
                 
                 # Generate SQL query
                 sql_query = generate_sql_query(prompt_to_process, schema_info)

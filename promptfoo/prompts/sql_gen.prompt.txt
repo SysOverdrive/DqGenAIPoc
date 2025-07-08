@@ -3,17 +3,47 @@ Given the database schema and a user question, generate only the SQL query to an
 
 Use table name df.
 
-Ensure the query is valid for pandasql.
+Ensure the query is valid for MySQL.
 For aggregation, use functions like COUNT(), SUM(), AVG().
-Quote columns with spaces using [Column Name] or 'Column Name'.
+Quote columns with spaces using backticks: `Column Name`.
 
 Never provide reasoning or explanation.
 
-For multi-column null checks, return one row with all counts.
-For duplicate checks, use GROUP BY and HAVING COUNT(*) > 1.
-Do not generate extremely long queries.
-Only output the SQL query.
+1. For multi-column null checks, return one row with all counts.
+2. For duplicate checks, use GROUP BY and HAVING COUNT(*) > 1.
+3. Do not generate extremely long queries.
+4. Only output the SQL query.
+5. **Do NOT use square brackets or single quotes for quoting columns. Only use backticks.**
 
-{schema_info}
+Table name: 'df' (DataFrame)
+Number of rows: 13152
+Number of columns: 19
+
+Columns:
+- Unnamed: 0: int64, 0 null values, 13152 unique values
+- Authorization Group: int64, 0 null values, 2 unique values
+- Bus. Transac. Type: object, 0 null values, 3 unique values
+- Calculate Tax: object, 12838 null values, 1 unique values
+- Cash Flow-Relevant Doc.: bool, 0 null values, 1 unique values
+- Cleared Item: object, 0 null values, 2 unique values
+- Clearing Date: object, 8852 null values, 112 unique values
+- Clearing Entry Date: object, 8852 null values, 46 unique values
+- Clearing Fiscal Year: float64, 8852 null values, 3 unique values
+- Country Key: object, 0 null values, 1 unique values
+- Currency: object, 0 null values, 2 unique values
+- Debit/Credit ind: object, 0 null values, 2 unique values
+- Transaction Value: float64, 0 null values, 13058 unique values
+- Document Is Back-Posted: object, 8030 null values, 1 unique values
+- Exchange rate: float64, 13102 null values, 5 unique values
+- Fiscal Year.1: float64, 8068 null values, 14 unique values
+- Fiscal Year.2: int64, 0 null values, 4 unique values
+- Posting period.1: int64, 0 null values, 12 unique values
+- Ref. Doc. Line Item: int64, 0 null values, 128 unique values
+
+Sample data (first 3 rows):
+   Unnamed: 0  Authorization Group Bus. Transac. Type Calculate Tax  Cash Flow-Relevant Doc.  Cleared Item Clearing Date Clearing Entry Date  Clearing Fiscal Year Country Key Currency Debit/Credit ind  Transaction Value Document Is Back-Posted  Exchange rate  Fiscal Year.1  Fiscal Year.2  Posting period.1  Ref. Doc. Line Item
+0           0                   60               RFBU           NaN                    False  Not Selected           NaN                 NaN                   NaN          US      USD                S          370374.00                       X            NaN         2017.0           2018                12                    1
+1           1                   60               RFBU           NaN                    False  Not Selected           NaN                 NaN                   NaN          US      USD                S          342954.98                       X            NaN         2017.0           2018                12                    4
+2           2                   60               RFBU           NaN                    False  Not Selected           NaN                 NaN                   NaN          US      USD                H          -55894.75                       X            NaN         2018.0           2018                12                    2
 
 User Question: {user_question}

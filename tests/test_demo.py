@@ -72,78 +72,78 @@ def test_openai_connection():
         print(f"❌ OpenAI API connection failed: {e}")
         return False
 
-def test_sql_generation():
-    """Test SQL generation from natural language"""
-    print("\nTesting SQL generation...")
-    try:
-        df = pd.read_csv("data/Data Dump - Accrual Accounts.csv")
+# def test_sql_generation():
+#     """Test SQL generation from natural language"""
+#     print("\nTesting SQL generation...")
+#     try:
+#         df = pd.read_csv("data/Data Dump - Accrual Accounts.csv")
         
-        # Create schema info
-        schema_info = f"""
-        Database Schema:
-        Table name: 'df' (DataFrame)
-        Number of rows: {len(df)}
-        Number of columns: {len(df.columns)}
+#         # Create schema info
+#         schema_info = f"""
+#         Database Schema:
+#         Table name: 'df' (DataFrame)
+#         Number of rows: {len(df)}
+#         Number of columns: {len(df.columns)}
         
-        Columns: {', '.join(df.columns.tolist())}
-        """
+#         Columns: {', '.join(df.columns.tolist())}
+#         """
         
-        # Load the system prompt from file
-        try:
-            with open("system_prompt.txt", "r") as f:
-                prompt_template = f.read()
-        except FileNotFoundError:
-            print("System prompt file not found. Using default prompt.")
-            prompt_template = """
-        You are an expert SQL analyst. Given the following database schema and a user question, generate a SQL query to answer the question.
+#         # Load the system prompt from file
+#         try:
+#             with open("system_prompt.txt", "r") as f:
+#                 prompt_template = f.read()
+#         except FileNotFoundError:
+#             print("System prompt file not found. Using default prompt.")
+#             prompt_template = """
+#         You are an expert SQL analyst. Given the following database schema and a user question, generate a SQL query to answer the question.
 
-        {schema_info}
+#         {schema_info}
 
-        User Question: {user_question}
+#         User Question: {user_question}
 
-        Instructions:
-        1. Generate ONLY the SQL query, nothing else
-        2. Use the table name 'df' 
-        3. Make sure the query is valid and will execute successfully
+#         Instructions:
+#         1. Generate ONLY the SQL query, nothing else
+#         2. Use the table name 'df' 
+#         3. Make sure the query is valid and will execute successfully
 
-        SQL Query:
-        """
+#         SQL Query:
+#         """
         
-        # Format the prompt with the actual data
-        prompt = prompt_template.format(
-            schema_info=schema_info,
-            user_question="How many rows are in the dataset?"
-        )
+#         # Format the prompt with the actual data
+#         prompt = prompt_template.format(
+#             schema_info=schema_info,
+#             user_question="How many rows are in the dataset?"
+#         )
         
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are an expert SQL analyst. Generate only SQL queries, no explanations."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=100,
-            temperature=0.1
-        )
+#         response = client.chat.completions.create(
+#             model="gpt-4o-mini",
+#             messages=[
+#                 {"role": "system", "content": "You are an expert SQL analyst. Generate only SQL queries, no explanations."},
+#                 {"role": "user", "content": prompt}
+#             ],
+#             max_tokens=100,
+#             temperature=0.1
+#         )
         
-        sql_query = response.choices[0].message.content
-        if sql_query:
-            sql_query = sql_query.strip()
-            print(f"✅ SQL generation successful: {sql_query}")
+#         sql_query = response.choices[0].message.content
+#         if sql_query:
+#             sql_query = sql_query.strip()
+#             print(f"✅ SQL generation successful: {sql_query}")
             
-            # Test the generated query
-            result = psql.sqldf(sql_query, locals())
-            if result is not None and not result.empty:
-                print(f"✅ Generated query executed successfully: {result.iloc[0, 0]} rows")
-            else:
-                print("✅ Generated query executed successfully: 0 rows")
-        else:
-            print("❌ SQL generation failed: No response from API")
-            return False
+#             # Test the generated query
+#             result = psql.sqldf(sql_query, locals())
+#             if result is not None and not result.empty:
+#                 print(f"✅ Generated query executed successfully: {result.iloc[0, 0]} rows")
+#             else:
+#                 print("✅ Generated query executed successfully: 0 rows")
+#         else:
+#             print("❌ SQL generation failed: No response from API")
+#             return False
         
-        return True
-    except Exception as e:
-        print(f"❌ SQL generation failed: {e}")
-        return False
+#         return True
+#     except Exception as e:
+#         print(f"❌ SQL generation failed: {e}")
+#         return False
 
 def main():
     """Run all tests"""

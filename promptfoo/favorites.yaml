@@ -1,0 +1,16 @@
+- vars:
+    question: "Show me the top 5 transactions by value"
+  assert:
+    - type: contains-sql
+- vars:
+    question: "How many null values are in each column?"
+  assert:
+    - type: contains-sql
+- vars:
+    question: "Show me transactions with values greater than 1000000"
+  assert:
+    - type: contains-sql
+- vars:
+    question: "What is the average transaction value?"
+  assert:
+    - type: contains-sql
