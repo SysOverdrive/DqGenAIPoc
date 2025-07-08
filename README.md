@@ -1,5 +1,7 @@
 ![App Screenshot](png/app.png)
 
+![Platform App Screenshot](png/platform_app.png)
+
 *Screenshot: Main interface of the AI Data Analyst Demo app*
 
 # 🤖 AI Data Quality Demo

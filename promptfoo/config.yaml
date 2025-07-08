@@ -1,6 +1,10 @@
 description: Evaluate SQL generation from natural language queries in favorites.json
 providers:
   - openai:gpt-4o-mini
+  - openai:gpt-3.5-turbo
+  - id: openai:gpt-4o-mini
+    config:
+      temperature: 2.0
 prompts:
   - file://prompts/sql_gen.prompt.txt
 # Test cases are loaded from the YAML file generated from favorites.json
